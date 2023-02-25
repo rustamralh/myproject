@@ -30,6 +30,11 @@ export default {
             } else {
                 context.commit('SET_AUTHENTICATION', false)
             }
+
+            // const filteredUsers = userDetails.filter(user => {
+            //     return user.name === name && user.password === password
+            //   })
+            //   return filteredUsers.length > 0
             console.log(currenUserDetails, payload)
         },
         isAuthLogout(context) {
