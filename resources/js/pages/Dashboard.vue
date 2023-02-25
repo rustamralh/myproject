@@ -61,11 +61,10 @@
                                     alt=""
                                 />
                                 <span
-                                    class="ml-3 hidden text-sm font-medium text-gray-700 lg:block"
-                                    ><span class="sr-only"
-                                        >Open user menu for </span
-                                    >Emilia Birch</span
+                                    class="ml-3 hidden text-sm font-medium text-gray-700 lg:block capitalize"
                                 >
+                                    {{ currentLogedUser }}
+                                </span>
                                 <ChevronDownIcon
                                     class="ml-1 hidden h-5 w-5 flex-shrink-0 text-gray-400 lg:block"
                                     aria-hidden="true"
@@ -106,6 +105,7 @@
                                 <MenuItem v-slot="{ active }">
                                     <a
                                         href="#"
+                                        @click="isAuthLogout"
                                         :class="[
                                             active ? 'bg-gray-100' : '',
                                             'block px-4 py-2 text-sm text-gray-700',
@@ -144,7 +144,10 @@
                                         <h1
                                             class="ml-3 text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:leading-9"
                                         >
-                                            Good morning, Emilia Birch
+                                            Good morning,
+                                            <span class="capitalize">{{
+                                                currentLogedUser
+                                            }}</span>
                                         </h1>
                                     </div>
                                     <dl
@@ -477,6 +480,21 @@
         </main>
     </div>
 </template>
+<script>
+import { computed } from "vue";
+export default {
+    methods: {
+        isAuthLogout() {
+            this.$store.dispatch("auth/isAuthLogout");
+        },
+    },
+    computed: {
+        currentLogedUser() {
+            return this.$store.getters["auth/currentLogedUser"];
+        },
+    },
+};
+</script>
 <script setup>
 import { ref } from "vue";
 import {

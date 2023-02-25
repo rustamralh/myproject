@@ -13,7 +13,6 @@ export default {
     computed: {
         userAuthentication() {
             return this.$store.getters["auth/userAuthentication"];
-            console.log(userAuthentication);
         },
     },
 };

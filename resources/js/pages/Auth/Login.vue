@@ -14,7 +14,7 @@
                     <h1 class="mb-2 text-2xl">Instagram</h1>
                     <span class="text-gray-300">Enter Login Details</span>
                 </div>
-                <form action="#" @submit.prevent="isAuth">
+                <form action="#" @submit.prevent="isAuthLogin">
                     <div class="mb-4 text-lg">
                         <input
                             class="rounded-3xl border-none bg-yellow-400 bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md"
@@ -57,8 +57,8 @@ export default {
         };
     },
     methods: {
-        isAuth() {
-            this.$store.dispatch("auth/isAuth", {
+        isAuthLogin() {
+            this.$store.dispatch("auth/isAuthLogin", {
                 name: this.userName,
                 password: this.userPassword,
             });
