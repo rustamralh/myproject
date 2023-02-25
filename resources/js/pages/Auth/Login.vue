@@ -10,17 +10,18 @@
         >
             <div class="text-white">
                 <div class="mb-8 flex flex-col items-center">
-                    <img src="\images\logo.png" width="150" alt="" srcset="" />
+                    <!-- <img src="\images\logo.png" width="150" alt="" srcset="" /> -->
                     <h1 class="mb-2 text-2xl">Instagram</h1>
                     <span class="text-gray-300">Enter Login Details</span>
                 </div>
-                <form action="#">
+                <form action="#" @submit.prevent="isAuth">
                     <div class="mb-4 text-lg">
                         <input
                             class="rounded-3xl border-none bg-yellow-400 bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md"
                             type="text"
                             name="name"
                             placeholder="Name"
+                            v-model="userName"
                         />
                     </div>
 
@@ -30,6 +31,7 @@
                             type="Password"
                             name="name"
                             placeholder="*********"
+                            v-model="userPassword"
                         />
                     </div>
                     <div class="mt-8 flex justify-center text-lg text-black">
@@ -45,3 +47,22 @@
         </div>
     </div>
 </template>
+<script>
+import { mapActions } from "vuex";
+export default {
+    data() {
+        return {
+            userName: "",
+            userPassword: "",
+        };
+    },
+    methods: {
+        isAuth() {
+            this.$store.dispatch("auth/isAuth", {
+                name: this.userName,
+                password: this.userPassword,
+            });
+        },
+    },
+};
+</script>

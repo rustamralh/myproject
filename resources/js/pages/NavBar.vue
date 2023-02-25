@@ -202,16 +202,11 @@
                     <Bars3Icon class="h-6 w-6" aria-hidden="true" />
                 </button>
             </div>
-            <main class="flex-1">
-                <div class="py-6">
-                    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                        <h1 class="text-2xl font-semibold text-gray-900">
-                            Dashboard
-                        </h1>
-                    </div>
-                    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <main class="flex-1 h-full">
+                <div class="">
+                    <div class="mx-auto max-w-7xl">
                         <!-- Replace with your content -->
-                        <div class="py-4">
+                        <div class="">
                             <MainBody />
                         </div>
                         <!-- /End replace -->
@@ -220,7 +215,6 @@
             </main>
         </div>
     </div>
-    <router-view></router-view>
 </template>
 
 <script setup>

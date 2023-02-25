@@ -1,1 +1,3 @@
-<template>lsdjflk</template>
+<template>
+    <router-view></router-view>
+</template>

@@ -1,9 +1,11 @@
 import './bootstrap';
 import { createRouter, createWebHistory } from 'vue-router';
 import { createApp } from 'vue'
+import store from './store/index.js';
 import App from './pages/App.vue'
 import Login from './pages/Auth/Login.vue'
 import Register from './pages/Auth/Register.vue'
+import Dashboard from './pages/Dashboard.vue'
 import ExampleComponenent from './components/ExampleComponenent.vue'
 import router from './router';
 
@@ -14,4 +16,5 @@ import router from './router';
 
 const app = createApp(App)
 app.use(router);
+app.use(store);
 app.mount('#app');

@@ -2,11 +2,11 @@ import { createRouter, createWebHashHistory } from "vue-router";
 import App from "./pages/App.vue";
 
 const routes = [
-    // {
-    //     path: "/",
-    //     name: "app",
-    //     component: App,
-    // },
+    {
+        path: "/",
+        name: "dashboard",
+        component: () => import("./pages/Dashboard.vue"),
+    },
     {
         path: "/login",
         name: "login",
