@@ -6,6 +6,7 @@ import App from './pages/App.vue'
 import Login from './pages/Auth/Login.vue'
 import Register from './pages/Auth/Register.vue'
 import Dashboard from './pages/Dashboard.vue'
+import Photos from './pages/Photos.vue'
 import ExampleComponenent from './components/ExampleComponenent.vue'
 import router from './router';
 

@@ -4,7 +4,8 @@ export default {
         return {
             userDetails: {
                 userName: 'sahil',
-                userPassword: '123456'
+                userPassword: '123456',
+                roles: 'Web Developer'
             },
             isAuthenticated: false,
             currentUser: null
@@ -35,7 +36,6 @@ export default {
             //     return user.name === name && user.password === password
             //   })
             //   return filteredUsers.length > 0
-            console.log(currenUserDetails, payload)
         },
         isAuthLogout(context) {
             context.commit('LOGOUT_USER')

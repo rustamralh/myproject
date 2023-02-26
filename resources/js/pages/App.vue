@@ -1,7 +1,7 @@
 <template>
     <div>
-        <NavBar v-if="userAuthentication" />
         <Login v-if="!userAuthentication" />
+        <NavBar v-if="userAuthentication" />
     </div>
 </template>
 <script>

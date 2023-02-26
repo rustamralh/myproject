@@ -67,10 +67,10 @@
                                     />
                                 </div>
                                 <nav class="mt-5 space-y-1 px-2">
-                                    <a
+                                    <router-link
                                         v-for="item in navigation"
                                         :key="item.name"
-                                        :href="item.href"
+                                        :to="item.href"
                                         :class="[
                                             item.current
                                                 ? 'bg-gray-900 text-white'
@@ -89,7 +89,7 @@
                                             aria-hidden="true"
                                         />
                                         {{ item.name }}
-                                    </a>
+                                    </router-link>
                                 </nav>
                             </div>
                             <div class="flex flex-shrink-0 bg-gray-700 p-4">
@@ -139,7 +139,8 @@
                         />
                     </div>
                     <nav class="mt-5 flex-1 space-y-1 px-2">
-                        <a
+                        <router-link
+                            to="/login"
                             v-for="item in navigation"
                             :key="item.name"
                             :href="item.href"
@@ -161,7 +162,7 @@
                                 aria-hidden="true"
                             />
                             {{ item.name }}
-                        </a>
+                        </router-link>
                     </nav>
                 </div>
                 <div class="flex flex-shrink-0 bg-gray-700 p-4">
@@ -192,7 +193,7 @@
             </div>
         </div>
         <div class="flex flex-1 flex-col lg:pl-64">
-            <div
+            <!-- <div
                 class="sticky top-0 z-10 bg-gray-100 pl-1 pt-1 sm:pl-3 sm:pt-3 lg:hidden"
             >
                 <button
@@ -203,12 +204,161 @@
                     <span class="sr-only">Open sidebar</span>
                     <Bars3Icon class="h-6 w-6" aria-hidden="true" />
                 </button>
-            </div>
+            </div> -->
             <main class="flex-1 h-full">
                 <div class="">
                     <div class="mx-auto max-w-7xl">
                         <!-- Replace with your content -->
                         <div class="">
+                            <div
+                                class="flex h-16 flex-shrink-0 border-b border-gray-200 bg-white"
+                            >
+                                <button
+                                    type="button"
+                                    class="border-r border-gray-200 px-4 text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-cyan-500 lg:hidden"
+                                    @click="sidebarOpen = true"
+                                >
+                                    <span class="sr-only">Open sidebar</span>
+                                    <Bars3CenterLeftIcon
+                                        class="h-6 w-6"
+                                        aria-hidden="true"
+                                    />
+                                </button>
+                                <!-- Search bar -->
+                                <div
+                                    class="flex flex-1 justify-between px-5 lg:mx-auto lg:max-w-6xl"
+                                >
+                                    <div class="flex flex-1">
+                                        <form
+                                            class="flex w-full md:ml-0"
+                                            action="#"
+                                            method="GET"
+                                        >
+                                            <label
+                                                for="search-field"
+                                                class="sr-only"
+                                                >Search</label
+                                            >
+                                            <div
+                                                class="relative w-full text-gray-400 focus-within:text-gray-600"
+                                            >
+                                                <div
+                                                    class="pointer-events-none absolute inset-y-0 left-0 flex items-center"
+                                                    aria-hidden="true"
+                                                >
+                                                    <MagnifyingGlassIcon
+                                                        class="h-5 w-5"
+                                                        aria-hidden="true"
+                                                    />
+                                                </div>
+                                                <input
+                                                    id="search-field"
+                                                    name="search-field"
+                                                    class="block h-full w-full border-transparent py-2 pl-8 pr-3 text-gray-900 placeholder-gray-500 focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
+                                                    placeholder="Search Details"
+                                                    type="search"
+                                                />
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="ml-4 flex items-center md:ml-6">
+                                        <button
+                                            type="button"
+                                            class="rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+                                        >
+                                            <span class="sr-only"
+                                                >View notifications</span
+                                            >
+                                            <BellIcon
+                                                class="h-6 w-6"
+                                                aria-hidden="true"
+                                            />
+                                        </button>
+
+                                        <!-- Profile dropdown -->
+                                        <Menu as="div" class="relative ml-3">
+                                            <div>
+                                                <MenuButton
+                                                    class="flex max-w-xs items-center rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 lg:rounded-md lg:p-2 lg:hover:bg-gray-50"
+                                                >
+                                                    <img
+                                                        class="h-8 w-8 rounded-full"
+                                                        src="\images\sahil.jpg"
+                                                        alt=""
+                                                    />
+                                                    <span
+                                                        class="ml-3 hidden text-sm font-medium text-gray-700 lg:block capitalize"
+                                                    >
+                                                        {{ currentUser }}
+                                                    </span>
+                                                    <ChevronDownIcon
+                                                        class="ml-1 hidden h-5 w-5 flex-shrink-0 text-gray-400 lg:block"
+                                                        aria-hidden="true"
+                                                    />
+                                                </MenuButton>
+                                            </div>
+                                            <transition
+                                                enter-active-class="transition ease-out duration-100"
+                                                enter-from-class="transform opacity-0 scale-95"
+                                                enter-to-class="transform opacity-100 scale-100"
+                                                leave-active-class="transition ease-in duration-75"
+                                                leave-from-class="transform opacity-100 scale-100"
+                                                leave-to-class="transform opacity-0 scale-95"
+                                            >
+                                                <MenuItems
+                                                    class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                                                >
+                                                    <MenuItem
+                                                        v-slot="{ active }"
+                                                    >
+                                                        <a
+                                                            href="#"
+                                                            :class="[
+                                                                active
+                                                                    ? 'bg-gray-100'
+                                                                    : '',
+                                                                'block px-4 py-2 text-sm text-gray-700',
+                                                            ]"
+                                                            >Your Profile</a
+                                                        >
+                                                    </MenuItem>
+                                                    <MenuItem
+                                                        v-slot="{ active }"
+                                                    >
+                                                        <a
+                                                            href="#"
+                                                            :class="[
+                                                                active
+                                                                    ? 'bg-gray-100'
+                                                                    : '',
+                                                                'block px-4 py-2 text-sm text-gray-700',
+                                                            ]"
+                                                            >Settings</a
+                                                        >
+                                                    </MenuItem>
+                                                    <MenuItem
+                                                        v-slot="{ active }"
+                                                    >
+                                                        <a
+                                                            href="#"
+                                                            @click="
+                                                                isAuthLogout
+                                                            "
+                                                            :class="[
+                                                                active
+                                                                    ? 'bg-gray-100'
+                                                                    : '',
+                                                                'block px-4 py-2 text-sm text-gray-700',
+                                                            ]"
+                                                            >Logout</a
+                                                        >
+                                                    </MenuItem>
+                                                </MenuItems>
+                                            </transition>
+                                        </Menu>
+                                    </div>
+                                </div>
+                            </div>
                             <MainBody />
                         </div>
                         <!-- /End replace -->
@@ -226,6 +376,11 @@ export default {
             return this.$store.getters["auth/currentLogedUser"];
         },
     },
+    methods: {
+        isAuthLogout() {
+            this.$store.dispatch("auth/isAuthLogout");
+        },
+    },
 };
 </script>
 <script setup>
@@ -234,11 +389,14 @@ import MainBody from "./MainBody.vue";
 import {
     Dialog,
     DialogPanel,
+    Menu,
+    MenuButton,
+    MenuItem,
+    MenuItems,
     TransitionChild,
     TransitionRoot,
 } from "@headlessui/vue";
 import {
-    Bars3Icon,
     CalendarIcon,
     ChartBarIcon,
     FolderIcon,
@@ -246,12 +404,15 @@ import {
     InboxIcon,
     UsersIcon,
     XMarkIcon,
+    Bars3CenterLeftIcon,
+    BellIcon,
+    MagnifyingGlassIcon,
 } from "@heroicons/vue/24/outline";
 
 const navigation = [
-    { name: "Dashboard", href: "#", icon: HomeIcon, current: true },
-    { name: "Team", href: "#", icon: UsersIcon, current: false },
-    { name: "Projects", href: "#", icon: FolderIcon, current: false },
+    { name: "Dashboard", href: "/", icon: HomeIcon, current: true },
+    { name: "Team", href: "/login", icon: UsersIcon, current: false },
+    { name: "Photos", href: "/photos", icon: FolderIcon, current: false },
     { name: "Calendar", href: "#", icon: CalendarIcon, current: false },
     { name: "Documents", href: "#", icon: InboxIcon, current: false },
     { name: "Reports", href: "#", icon: ChartBarIcon, current: false },

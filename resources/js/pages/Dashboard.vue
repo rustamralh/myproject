@@ -1,130 +1,11 @@
 <template>
     <div class="flex flex-1 flex-col">
-        <div
-            class="flex h-16 flex-shrink-0 border-b border-gray-200 bg-white lg:border-none"
-        >
-            <button
-                type="button"
-                class="border-r border-gray-200 px-4 text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-cyan-500 lg:hidden"
-                @click="sidebarOpen = true"
-            >
-                <span class="sr-only">Open sidebar</span>
-                <Bars3CenterLeftIcon class="h-6 w-6" aria-hidden="true" />
-            </button>
-            <!-- Search bar -->
-            <div
-                class="flex flex-1 justify-between px-4 sm:px-6 lg:mx-auto lg:max-w-6xl lg:px-8"
-            >
-                <div class="flex flex-1">
-                    <form class="flex w-full md:ml-0" action="#" method="GET">
-                        <label for="search-field" class="sr-only">Search</label>
-                        <div
-                            class="relative w-full text-gray-400 focus-within:text-gray-600"
-                        >
-                            <div
-                                class="pointer-events-none absolute inset-y-0 left-0 flex items-center"
-                                aria-hidden="true"
-                            >
-                                <MagnifyingGlassIcon
-                                    class="h-5 w-5"
-                                    aria-hidden="true"
-                                />
-                            </div>
-                            <input
-                                id="search-field"
-                                name="search-field"
-                                class="block h-full w-full border-transparent py-2 pl-8 pr-3 text-gray-900 placeholder-gray-500 focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
-                                placeholder="Search transactions"
-                                type="search"
-                            />
-                        </div>
-                    </form>
-                </div>
-                <div class="ml-4 flex items-center md:ml-6">
-                    <button
-                        type="button"
-                        class="rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
-                    >
-                        <span class="sr-only">View notifications</span>
-                        <BellIcon class="h-6 w-6" aria-hidden="true" />
-                    </button>
-
-                    <!-- Profile dropdown -->
-                    <Menu as="div" class="relative ml-3">
-                        <div>
-                            <MenuButton
-                                class="flex max-w-xs items-center rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 lg:rounded-md lg:p-2 lg:hover:bg-gray-50"
-                            >
-                                <img
-                                    class="h-8 w-8 rounded-full"
-                                    src="\images\sahil.jpg"
-                                    alt=""
-                                />
-                                <span
-                                    class="ml-3 hidden text-sm font-medium text-gray-700 lg:block capitalize"
-                                >
-                                    {{ currentLogedUser }}
-                                </span>
-                                <ChevronDownIcon
-                                    class="ml-1 hidden h-5 w-5 flex-shrink-0 text-gray-400 lg:block"
-                                    aria-hidden="true"
-                                />
-                            </MenuButton>
-                        </div>
-                        <transition
-                            enter-active-class="transition ease-out duration-100"
-                            enter-from-class="transform opacity-0 scale-95"
-                            enter-to-class="transform opacity-100 scale-100"
-                            leave-active-class="transition ease-in duration-75"
-                            leave-from-class="transform opacity-100 scale-100"
-                            leave-to-class="transform opacity-0 scale-95"
-                        >
-                            <MenuItems
-                                class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
-                            >
-                                <MenuItem v-slot="{ active }">
-                                    <a
-                                        href="#"
-                                        :class="[
-                                            active ? 'bg-gray-100' : '',
-                                            'block px-4 py-2 text-sm text-gray-700',
-                                        ]"
-                                        >Your Profile</a
-                                    >
-                                </MenuItem>
-                                <MenuItem v-slot="{ active }">
-                                    <a
-                                        href="#"
-                                        :class="[
-                                            active ? 'bg-gray-100' : '',
-                                            'block px-4 py-2 text-sm text-gray-700',
-                                        ]"
-                                        >Settings</a
-                                    >
-                                </MenuItem>
-                                <MenuItem v-slot="{ active }">
-                                    <a
-                                        href="#"
-                                        @click="isAuthLogout"
-                                        :class="[
-                                            active ? 'bg-gray-100' : '',
-                                            'block px-4 py-2 text-sm text-gray-700',
-                                        ]"
-                                        >Logout</a
-                                    >
-                                </MenuItem>
-                            </MenuItems>
-                        </transition>
-                    </Menu>
-                </div>
-            </div>
-        </div>
         <main class="flex-1 pb-8">
             <!-- Page header -->
             <div class="bg-white shadow">
-                <div class="px-4 sm:px-6 lg:mx-auto lg:max-w-6xl lg:px-8">
+                <div class="px-5 lg:mx-auto lg:max-w-6xl">
                     <div
-                        class="py-6 md:flex md:items-center md:justify-between lg:border-t lg:border-gray-200"
+                        class="py-6 md:flex md:items-center md:justify-between"
                     >
                         <div class="min-w-0 flex-1">
                             <!-- Profile -->
@@ -144,7 +25,7 @@
                                         <h1
                                             class="ml-3 text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:leading-9"
                                         >
-                                            Good morning,
+                                            {{ greeting }},
                                             <span class="capitalize">{{
                                                 currentLogedUser
                                             }}</span>
@@ -161,7 +42,7 @@
                                                 class="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-400"
                                                 aria-hidden="true"
                                             />
-                                            Duke street studio
+                                            {{ UserDetials.roles }}
                                         </dd>
                                         <dt class="sr-only">Account status</dt>
                                         <dd
@@ -195,8 +76,8 @@
                 </div>
             </div>
 
-            <div class="mt-8">
-                <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <div class="mt-6">
+                <div class="mx-auto max-w-6xl px-4 sm:px-6">
                     <h2 class="text-lg font-medium leading-6 text-gray-900">
                         Overview
                     </h2>
@@ -250,13 +131,13 @@
                 </div>
 
                 <h2
-                    class="mx-auto mt-8 max-w-6xl px-4 text-lg font-medium leading-6 text-gray-900 sm:px-6 lg:px-8"
+                    class="mx-auto mt-8 max-w-6xl px-4 text-lg font-medium leading-6 text-gray-900 sm:px-6"
                 >
                     Recent activity
                 </h2>
 
                 <!-- Activity list (smallest breakpoint only) -->
-                <div class="shadow sm:hidden">
+                <div class="shadow sm:hidden mx-auto max-w-6xl px-4 sm:px-6">
                     <ul
                         role="list"
                         class="mt-2 divide-y divide-gray-200 overflow-hidden shadow sm:hidden"
@@ -328,7 +209,7 @@
 
                 <!-- Activity table (small breakpoint and up) -->
                 <div class="hidden sm:block">
-                    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+                    <div class="mx-auto max-w-6xl px-4 sm:px-6">
                         <div class="mt-2 flex flex-col">
                             <div
                                 class="min-w-full overflow-hidden overflow-x-auto align-middle shadow sm:rounded-lg"
@@ -482,15 +363,31 @@
 </template>
 <script>
 import { computed } from "vue";
+import { mapGetters, mapActions } from "vuex";
 export default {
-    methods: {
-        isAuthLogout() {
-            this.$store.dispatch("auth/isAuthLogout");
-        },
+    data() {
+        return {
+            greeting: "",
+        };
+    },
+    mounted() {
+        const currentTime = new Date().getHours();
+        if (currentTime >= 0 && currentTime < 12) {
+            this.greeting = "Good morning";
+        } else if (currentTime >= 12 && currentTime < 16) {
+            this.greeting = "Good afternoon";
+        } else if (currentTime >= 16 && currentTime < 21) {
+            this.greeting = "Good evening";
+        } else {
+            this.greeting = "Good night";
+        }
     },
     computed: {
         currentLogedUser() {
             return this.$store.getters["auth/currentLogedUser"];
+        },
+        UserDetials() {
+            return this.$store.getters["auth/userDetails"];
         },
     },
 };
@@ -530,14 +427,14 @@ import {
     MagnifyingGlassIcon,
 } from "@heroicons/vue/20/solid";
 
-const navigation = [
-    { name: "Home", href: "#", icon: HomeIcon, current: true },
-    { name: "History", href: "#", icon: ClockIcon, current: false },
-    { name: "Balances", href: "#", icon: ScaleIcon, current: false },
-    { name: "Cards", href: "#", icon: CreditCardIcon, current: false },
-    { name: "Recipients", href: "#", icon: UserGroupIcon, current: false },
-    { name: "Reports", href: "#", icon: DocumentChartBarIcon, current: false },
-];
+// const navigation = [
+//     { name: "Home", href: "#", icon: HomeIcon, current: true },
+//     { name: "History", href: "#", icon: ClockIcon, current: false },
+//     { name: "Balances", href: "#", icon: ScaleIcon, current: false },
+//     { name: "Cards", href: "#", icon: CreditCardIcon, current: false },
+//     { name: "Recipients", href: "#", icon: UserGroupIcon, current: false },
+//     { name: "Reports", href: "#", icon: DocumentChartBarIcon, current: false },
+// ];
 const secondaryNavigation = [
     { name: "Settings", href: "#", icon: CogIcon },
     { name: "Help", href: "#", icon: QuestionMarkCircleIcon },
