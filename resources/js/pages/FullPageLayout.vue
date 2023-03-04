@@ -92,7 +92,7 @@
                                 <div class="space-y-1 px-2">
                                     <a
                                         v-for="item in navigation"
-                                        :key="item.name"
+                                        :key="item"
                                         :href="item.href"
                                         :class="[
                                             item.current
@@ -118,7 +118,12 @@
                                             v-for="item in secondaryNavigation"
                                             :key="item.name"
                                             :href="item.href"
-                                            class="group flex items-center rounded-md px-2 py-2 text-base font-medium text-cyan-100 hover:bg-cyan-600 hover:text-white"
+                                            :class="[
+                                                item.current
+                                                    ? 'bg-cyan-800 text-white'
+                                                    : 'text-cyan-100 hover:bg-cyan-600 hover:text-white',
+                                                'group flex items-center rounded-md px-2 py-2 text-base font-medium',
+                                            ]"
                                         >
                                             <component
                                                 :is="item.icon"
@@ -183,7 +188,12 @@
                                 v-for="item in secondaryNavigation"
                                 :key="item.name"
                                 :href="item.href"
-                                class="group flex items-center rounded-md px-2 py-2 text-sm font-medium leading-6 text-cyan-100 hover:bg-cyan-600 hover:text-white"
+                                :class="[
+                                    item.current
+                                        ? 'bg-cyan-800 text-white'
+                                        : 'text-cyan-100 hover:bg-cyan-600 hover:text-white',
+                                    'group flex items-center rounded-md px-2 py-2 text-base font-medium',
+                                ]"
                             >
                                 <component
                                     :is="item.icon"
@@ -332,7 +342,6 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
 import {
     Dialog,
     DialogPanel,
@@ -365,17 +374,38 @@ import {
     ChevronRightIcon,
     MagnifyingGlassIcon,
 } from "@heroicons/vue/20/solid";
-
+import { ref } from "vue";
+console.log(window.location.pathname);
 const navigation = [
-    { name: "Home", href: "#", icon: HomeIcon, current: true },
-    { name: "History", href: "#", icon: ClockIcon, current: false },
-    { name: "Balances", href: "#", icon: ScaleIcon, current: false },
-    { name: "Cards", href: "#", icon: CreditCardIcon, current: false },
-    { name: "Recipients", href: "#", icon: UserGroupIcon, current: false },
+    {
+        name: "Home",
+        href: "/dashboard",
+        icon: HomeIcon,
+        current: "/dashboard" === window.location.pathname,
+    },
+    {
+        name: "Photos",
+        href: "/photos",
+        icon: ClockIcon,
+        current: "/photos" === window.location.pathname,
+    },
+    { name: "Teams", href: "#", icon: ScaleIcon, current: false },
+    { name: "Projects", href: "#", icon: CreditCardIcon, current: false },
+    {
+        name: "Calender",
+        href: "/calender",
+        icon: UserGroupIcon,
+        current: "/calender" === window.location.pathname,
+    },
     { name: "Reports", href: "#", icon: DocumentChartBarIcon, current: false },
 ];
 const secondaryNavigation = [
-    { name: "Settings", href: "#", icon: CogIcon },
+    {
+        name: "Settings",
+        href: "/setting",
+        icon: CogIcon,
+        current: "/setting" === window.location.pathname,
+    },
     { name: "Help", href: "#", icon: QuestionMarkCircleIcon },
     { name: "Privacy", href: "#", icon: ShieldCheckIcon },
 ];

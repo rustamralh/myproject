@@ -1,7 +1,7 @@
-<!-- <template>
+<template>
     <div>
-        <Login />
-        <NavBar />
+        <Login v-if="!userAuthentication" />
+        <Dashboard v-if="userAuthentication" />
     </div>
 </template>
 <script>
@@ -12,8 +12,8 @@ export default {
     components: { NavBar, Login },
     computed: {
         userAuthentication() {
-            return this.$store.getters["auth/userAuthentication"];
+            return this.$store.getters["userAuthentication"];
         },
     },
 };
-</script> -->
+</script>

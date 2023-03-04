@@ -46,8 +46,6 @@
                         >
                             Login
                         </button>
-
-                        {{ usegetter }}
                     </div>
                 </form>
             </div>
@@ -67,7 +65,7 @@ export default {
     },
     computed: {
         ...mapGetters({
-            usegetter: "userAuthentication",
+            isUserAuthenticated: "userAuthentication",
         }),
     },
     methods: {

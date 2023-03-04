@@ -23,7 +23,7 @@ import FullPageLayout from './FullPageLayout.vue';
                                     <h1
                                         class="ml-3 text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:leading-9"
                                     >
-                                        Good morning, Sahil
+                                        {{ greeting }}, Sahil
                                     </h1>
                                 </div>
                                 <dl
@@ -404,5 +404,27 @@ const statusStyles = {
     success: "bg-green-100 text-green-800",
     processing: "bg-yellow-100 text-yellow-800",
     failed: "bg-gray-100 text-gray-800",
+};
+</script>
+<script>
+import { mapActions, mapGetters } from "vuex";
+import { usePage } from "@inertiajs/vue3";
+export default {
+    components: { mapActions, mapGetters, usePage },
+    data() {
+        return {
+            userName: "",
+            userPassword: "",
+        };
+    },
+    computed: {
+        ...mapGetters("greeting", ["greeting"]),
+    },
+    methods: {
+        ...mapActions("greeting", ["SetGreeting"]),
+    },
+    mounted() {
+        this.SetGreeting();
+    },
 };
 </script>

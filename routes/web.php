@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return inertia('Auth/Login');
+    return inertia('App');
 });
 Route::get('/login', function () {
     return inertia('Auth/Login');
@@ -27,6 +27,12 @@ Route::get('/navbar', function () {
 });
 Route::get('/photos', function () {
     return inertia('Photos');
+});
+Route::get('/setting', function () {
+    return inertia('Setting');
+});
+Route::get('/calender', function () {
+    return inertia('Calender');
 });
 // Route::get('/full-page', function () {
 //     return inertia('FullPageLayout');
