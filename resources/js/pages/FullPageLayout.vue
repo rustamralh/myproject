@@ -389,7 +389,12 @@ const navigation = [
         icon: ClockIcon,
         current: "/photos" === window.location.pathname,
     },
-    { name: "Teams", href: "#", icon: ScaleIcon, current: false },
+    {
+        name: "Teams",
+        href: "/teams",
+        icon: ScaleIcon,
+        current: "/teams" === window.location.pathname,
+    },
     { name: "Projects", href: "#", icon: CreditCardIcon, current: false },
     {
         name: "Calender",

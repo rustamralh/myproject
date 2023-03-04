@@ -34,6 +34,9 @@ Route::get('/setting', function () {
 Route::get('/calender', function () {
     return inertia('Calender');
 });
+Route::get('/teams', function () {
+    return inertia('Teams');
+});
 // Route::get('/full-page', function () {
 //     return inertia('FullPageLayout');
 // });
