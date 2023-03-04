@@ -14,7 +14,12 @@
                     <h1 class="mb-2 text-2xl">Xyrin Technologies</h1>
                     <!-- <span class="text-gray-300">Enter Login Details</span> -->
                 </div>
-                <form action="#" @submit.prevent="isAuthLogin">
+                <form
+                    action="#"
+                    @submit.prevent="
+                        isAuth({ name: userName, password: userPassword })
+                    "
+                >
                     <div class="mb-4 text-lg">
                         <input
                             class="rounded-3xl border-none bg-transparent bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md"
@@ -41,6 +46,8 @@
                         >
                             Login
                         </button>
+
+                        {{ usegetter }}
                     </div>
                 </form>
             </div>
@@ -48,21 +55,25 @@
     </div>
 </template>
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
+import { usePage } from "@inertiajs/vue3";
 export default {
+    components: { mapActions, mapGetters, usePage },
     data() {
         return {
             userName: "",
             userPassword: "",
         };
     },
+    computed: {
+        ...mapGetters({
+            usegetter: "userAuthentication",
+        }),
+    },
     methods: {
-        isAuthLogin() {
-            this.$store.dispatch("auth/isAuthLogin", {
-                name: this.userName,
-                password: this.userPassword,
-            });
-        },
+        ...mapActions({
+            isAuth: "isAuthLogin",
+        }),
     },
 };
 </script>

@@ -1,5 +1,4 @@
 export default {
-    namespaced: true,
     state() {
         return {
             userDetails: {
@@ -31,6 +30,7 @@ export default {
             } else {
                 context.commit('SET_AUTHENTICATION', false)
             }
+            console.log(payload)
 
             // const filteredUsers = userDetails.filter(user => {
             //     return user.name === name && user.password === password
