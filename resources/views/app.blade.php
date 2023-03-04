@@ -6,11 +6,14 @@
 
         <title>Laravel</title>
         @vite('resources/css/app.css') 
+        @vite('resources/js/app.js')
+    @inertiaHead
     </head>
     <body class="antialiased">
-        <div  id="app">
+        <!-- <div  id="app">
             
-        </div>
+        </div> -->
+        @inertia
         @vite('resources/js/app.js')
         <!-- <script src="{{asset('js/app.js')}}"></script> -->
     </body>

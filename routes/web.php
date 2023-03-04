@@ -14,5 +14,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return inertia('Auth/Login');
+});
+Route::get('/login', function () {
+    return inertia('Auth/Login');
+});
+Route::get('/dashboard', function () {
+    return inertia('Dashboard');
+});
+Route::get('/navbar', function () {
+    return inertia('NavBar');
+});
+Route::get('/photos', function () {
+    return inertia('Photos');
 });

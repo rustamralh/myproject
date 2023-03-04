@@ -1,21 +1,15 @@
-import './bootstrap';
-import { createRouter, createWebHistory } from 'vue-router';
-import { createApp } from 'vue'
-import store from './store/index.js';
-import App from './pages/App.vue'
-import Login from './pages/Auth/Login.vue'
-import Register from './pages/Auth/Register.vue'
-import Dashboard from './pages/Dashboard.vue'
-import Photos from './pages/Photos.vue'
-import ExampleComponenent from './components/ExampleComponenent.vue'
-import router from './router';
 
-// router.beforeEach(function (to, from, next) {
-//     window.scrollTo(0, 0);
-//     next();
-// });
+import { createApp, h } from 'vue'
+import { createInertiaApp } from '@inertiajs/vue3'
 
-const app = createApp(App)
-app.use(router);
-app.use(store);
-app.mount('#app');
+createInertiaApp({
+    resolve: name => {
+        const pages = import.meta.glob('./pages/**/*.vue', { eager: true })
+        return pages[`./pages/${name}.vue`]
+    },
+    setup({ el, App, props, plugin }) {
+        createApp({ render: () => h(App, props) })
+            .use(plugin)
+            .mount(el)
+    },
+})

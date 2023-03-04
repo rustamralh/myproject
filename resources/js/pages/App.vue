@@ -1,7 +1,7 @@
-<template>
+<!-- <template>
     <div>
-        <Login v-if="!userAuthentication" />
-        <NavBar v-if="userAuthentication" />
+        <Login />
+        <NavBar />
     </div>
 </template>
 <script>
@@ -16,4 +16,4 @@ export default {
         },
     },
 };
-</script>
+</script> -->
