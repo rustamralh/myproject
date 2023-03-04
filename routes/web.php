@@ -28,3 +28,6 @@ Route::get('/navbar', function () {
 Route::get('/photos', function () {
     return inertia('Photos');
 });
+// Route::get('/full-page', function () {
+//     return inertia('FullPageLayout');
+// });

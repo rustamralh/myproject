@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+    @apply h-full bg-slate-300;
+}
 body {
-    @apply bg-slate-300;
+    @apply text-gray-700 bg-gradient-to-tr from-blue-200 via-indigo-200 to-pink-200;
 }
