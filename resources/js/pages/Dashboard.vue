@@ -53,19 +53,15 @@ import FullPageLayout from './FullPageLayout.vue';
                             </div>
                         </div>
                     </div>
-                    <div class="mt-6 flex space-x-3 md:mt-0">
-                        <button
-                            type="button"
-                            class="inline-flex items-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
-                        >
-                            Add money
-                        </button>
-                        <button
-                            type="button"
-                            class="inline-flex items-center rounded-md bg-cyan-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-cyan-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600"
-                        >
-                            Send money
-                        </button>
+                    <div class="mt-6 flex gap-2 md:mt-0 md:w-2/5">
+                        <img
+                            src="https://cdn-icons-png.flaticon.com/512/7350/7350737.png"
+                            alt=""
+                            class="w-6 h-6"
+                        />
+                        <div>
+                            {{ thoughts }}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -339,7 +335,7 @@ import FullPageLayout from './FullPageLayout.vue';
     </FullPageLayout>
 </template>
 <script setup>
-import { ScaleIcon } from "@heroicons/vue/24/outline";
+import { ScaleIcon, ChatBubbleLeftRightIcon } from "@heroicons/vue/24/outline";
 import {
     BanknotesIcon,
     BuildingOfficeIcon,
@@ -409,12 +405,14 @@ const statusStyles = {
 <script>
 import { mapActions, mapGetters } from "vuex";
 import { usePage } from "@inertiajs/vue3";
+import axios from "axios";
 export default {
     components: { mapActions, mapGetters, usePage },
     data() {
         return {
             userName: "",
             userPassword: "",
+            thoughts: "",
         };
     },
     computed: {
@@ -422,9 +420,24 @@ export default {
     },
     methods: {
         ...mapActions("greeting", ["SetGreeting"]),
+        getThoughts() {
+            axios.get("https://api.quotable.io/random").then((response) => {
+                this.thoughts = response.data.content;
+            });
+            // .get("https://hindi-quotes.vercel.app/random")
+            //     .then((response) => {
+            //         console.log(response);
+            //     });
+        },
     },
     mounted() {
         this.SetGreeting();
+        this.getThoughts();
+    },
+    created() {
+        setInterval(() => {
+            this.getThoughts();
+        }, 6000);
     },
 };
 </script>

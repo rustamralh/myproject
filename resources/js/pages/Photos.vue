@@ -352,7 +352,8 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
+import axios from "axios";
 import {
     Dialog,
     DialogPanel,
@@ -457,6 +458,16 @@ const currentFile = {
         },
     ],
 };
+const getRandomPic = () => {
+    axios
+        .get("https://api.unsplash.photos.getPhoto('pFqrYbhIAXs')")
+        .then((response) => {
+            console.log(response);
+        });
+};
+onMounted(() => {
+    getRandomPic();
+});
 
 const mobileMenuOpen = ref(false);
 </script>

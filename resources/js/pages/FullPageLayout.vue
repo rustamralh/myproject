@@ -375,13 +375,14 @@ import {
     MagnifyingGlassIcon,
 } from "@heroicons/vue/20/solid";
 import { ref } from "vue";
-console.log(window.location.pathname);
 const navigation = [
     {
         name: "Home",
         href: "/dashboard",
         icon: HomeIcon,
-        current: "/dashboard" === window.location.pathname,
+        current:
+            "/dashboard" === window.location.pathname ||
+            "/" === window.location.pathname,
     },
     {
         name: "Photos",
