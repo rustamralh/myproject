@@ -2,21 +2,21 @@ import FullPageLayout from './FullPageLayout.vue';
 
 <template>
     <FullPageLayout>
-        <div class="bg-white shadow rounded-lg">
-            <div class="px-4 sm:px-6 lg:mx-auto lg:max-w-6xl lg:px-8">
+        <div class="bg-white rounded-lg shadow">
+            <div class="px-4 sm:px-6 lg:mx-auto lg:px-8">
                 <div class="py-6 md:flex md:items-center md:justify-between">
-                    <div class="min-w-0 flex-1">
+                    <div class="flex-1 min-w-0">
                         <!-- Profile -->
                         <div class="flex items-center">
                             <img
-                                class="hidden h-16 w-16 rounded-full sm:block"
+                                class="hidden w-16 h-16 rounded-full sm:block"
                                 src="https://cdn.vectorstock.com/i/1000x1000/92/94/bearded-man-in-glasses-showing-emotion-winking-vector-45159294.webp"
                                 alt=""
                             />
                             <div>
                                 <div class="flex items-center">
                                     <img
-                                        class="h-16 w-16 rounded-full sm:hidden"
+                                        class="w-16 h-16 rounded-full sm:hidden"
                                         src="https://cdn.vectorstock.com/i/1000x1000/92/94/bearded-man-in-glasses-showing-emotion-winking-vector-45159294.webp"
                                         alt=""
                                     />
@@ -27,11 +27,11 @@ import FullPageLayout from './FullPageLayout.vue';
                                     </h1>
                                 </div>
                                 <dl
-                                    class="mt-6 flex flex-col sm:ml-3 sm:mt-1 sm:flex-row sm:flex-wrap"
+                                    class="flex flex-col mt-6 sm:ml-3 sm:mt-1 sm:flex-row sm:flex-wrap"
                                 >
                                     <dt class="sr-only">Company</dt>
                                     <dd
-                                        class="flex items-center text-sm font-medium capitalize text-gray-500 sm:mr-6"
+                                        class="flex items-center text-sm font-medium text-gray-500 capitalize sm:mr-6"
                                     >
                                         <BuildingOfficeIcon
                                             class="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-400"
@@ -41,7 +41,7 @@ import FullPageLayout from './FullPageLayout.vue';
                                     </dd>
                                     <dt class="sr-only">Account status</dt>
                                     <dd
-                                        class="mt-3 flex items-center text-sm font-medium capitalize text-gray-500 sm:mr-6 sm:mt-0"
+                                        class="flex items-center mt-3 text-sm font-medium text-gray-500 capitalize sm:mr-6 sm:mt-0"
                                     >
                                         <CheckCircleIcon
                                             class="mr-1.5 h-5 w-5 flex-shrink-0 text-green-400"
@@ -53,7 +53,7 @@ import FullPageLayout from './FullPageLayout.vue';
                             </div>
                         </div>
                     </div>
-                    <div class="mt-6 flex gap-2 md:mt-0 md:w-2/5">
+                    <div class="flex gap-2 mt-6 md:mt-0 md:w-2/5">
                         <img
                             src="https://cdn-icons-png.flaticon.com/512/7350/7350737.png"
                             alt=""
@@ -72,27 +72,27 @@ import FullPageLayout from './FullPageLayout.vue';
                     Overview
                 </h2>
                 <div
-                    class="mt-2 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"
+                    class="grid grid-cols-1 gap-5 mt-2 sm:grid-cols-2 lg:grid-cols-3"
                 >
                     <!-- Card -->
                     <div
                         v-for="card in cards"
                         :key="card.name"
-                        class="overflow-hidden rounded-lg bg-white shadow"
+                        class="overflow-hidden bg-white rounded-lg shadow"
                     >
                         <div class="p-5">
                             <div class="flex items-center">
                                 <div class="flex-shrink-0">
                                     <component
                                         :is="card.icon"
-                                        class="h-6 w-6 text-gray-400"
+                                        class="w-6 h-6 text-gray-400"
                                         aria-hidden="true"
                                     />
                                 </div>
-                                <div class="ml-5 w-0 flex-1">
+                                <div class="flex-1 w-0 ml-5">
                                     <dl>
                                         <dt
-                                            class="truncate text-sm font-medium text-gray-500"
+                                            class="text-sm font-medium text-gray-500 truncate"
                                         >
                                             {{ card.name }}
                                         </dt>
@@ -107,7 +107,7 @@ import FullPageLayout from './FullPageLayout.vue';
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-gray-50 px-5 py-3">
+                        <div class="px-5 py-3 bg-gray-50">
                             <div class="text-sm">
                                 <a
                                     :href="card.href"
@@ -121,7 +121,7 @@ import FullPageLayout from './FullPageLayout.vue';
             </div>
 
             <h2
-                class="mx-auto mt-8 px-4 text-lg font-medium leading-6 text-gray-900 sm:px-6 lg:px-8"
+                class="px-4 mx-auto mt-8 text-lg font-medium leading-6 text-gray-900 sm:px-6 lg:px-8"
             >
                 Recent activity
             </h2>
@@ -130,7 +130,7 @@ import FullPageLayout from './FullPageLayout.vue';
             <div class="shadow sm:hidden">
                 <ul
                     role="list"
-                    class="mt-2 divide-y divide-gray-200 overflow-hidden shadow sm:hidden"
+                    class="mt-2 overflow-hidden divide-y divide-gray-200 shadow sm:hidden"
                 >
                     <li
                         v-for="transaction in transactions"
@@ -138,16 +138,16 @@ import FullPageLayout from './FullPageLayout.vue';
                     >
                         <a
                             :href="transaction.href"
-                            class="block bg-white px-4 py-4 hover:bg-gray-50"
+                            class="block px-4 py-4 bg-white hover:bg-gray-50"
                         >
                             <span class="flex items-center space-x-4">
                                 <span class="flex flex-1 space-x-2 truncate">
                                     <BanknotesIcon
-                                        class="h-5 w-5 flex-shrink-0 text-gray-400"
+                                        class="flex-shrink-0 w-5 h-5 text-gray-400"
                                         aria-hidden="true"
                                     />
                                     <span
-                                        class="flex flex-col truncate text-sm text-gray-500"
+                                        class="flex flex-col text-sm text-gray-500 truncate"
                                     >
                                         <span class="truncate">{{
                                             transaction.name
@@ -166,7 +166,7 @@ import FullPageLayout from './FullPageLayout.vue';
                                     </span>
                                 </span>
                                 <ChevronRightIcon
-                                    class="h-5 w-5 flex-shrink-0 text-gray-400"
+                                    class="flex-shrink-0 w-5 h-5 text-gray-400"
                                     aria-hidden="true"
                                 />
                             </span>
@@ -175,18 +175,18 @@ import FullPageLayout from './FullPageLayout.vue';
                 </ul>
 
                 <nav
-                    class="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3"
+                    class="flex items-center justify-between px-4 py-3 bg-white border-t border-gray-200"
                     aria-label="Pagination"
                 >
-                    <div class="flex flex-1 justify-between">
+                    <div class="flex justify-between flex-1">
                         <a
                             href="#"
-                            class="relative inline-flex items-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+                            class="relative inline-flex items-center px-3 py-2 text-sm font-semibold text-gray-900 bg-white rounded-md ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
                             >Previous</a
                         >
                         <a
                             href="#"
-                            class="relative ml-3 inline-flex items-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+                            class="relative inline-flex items-center px-3 py-2 ml-3 text-sm font-semibold text-gray-900 bg-white rounded-md ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
                             >Next</a
                         >
                     </div>
@@ -196,7 +196,7 @@ import FullPageLayout from './FullPageLayout.vue';
             <!-- Activity table (small breakpoint and up) -->
             <div class="hidden sm:block">
                 <div class="mx-auto">
-                    <div class="mt-2 flex flex-col">
+                    <div class="flex flex-col mt-2">
                         <div
                             class="min-w-full overflow-hidden overflow-x-auto align-middle shadow sm:rounded-lg"
                         >
@@ -204,25 +204,25 @@ import FullPageLayout from './FullPageLayout.vue';
                                 <thead>
                                     <tr>
                                         <th
-                                            class="bg-gray-50 px-6 py-3 text-left text-sm font-semibold text-gray-900"
+                                            class="px-6 py-3 text-sm font-semibold text-left text-gray-900 bg-gray-50"
                                             scope="col"
                                         >
                                             Transaction
                                         </th>
                                         <th
-                                            class="bg-gray-50 px-6 py-3 text-right text-sm font-semibold text-gray-900"
+                                            class="px-6 py-3 text-sm font-semibold text-right text-gray-900 bg-gray-50"
                                             scope="col"
                                         >
                                             Amount
                                         </th>
                                         <th
-                                            class="hidden bg-gray-50 px-6 py-3 text-left text-sm font-semibold text-gray-900 md:block"
+                                            class="hidden px-6 py-3 text-sm font-semibold text-left text-gray-900 bg-gray-50 md:block"
                                             scope="col"
                                         >
                                             Status
                                         </th>
                                         <th
-                                            class="bg-gray-50 px-6 py-3 text-right text-sm font-semibold text-gray-900"
+                                            class="px-6 py-3 text-sm font-semibold text-right text-gray-900 bg-gray-50"
                                             scope="col"
                                         >
                                             Date
@@ -230,7 +230,7 @@ import FullPageLayout from './FullPageLayout.vue';
                                     </tr>
                                 </thead>
                                 <tbody
-                                    class="divide-y divide-gray-200 bg-white"
+                                    class="bg-white divide-y divide-gray-200"
                                 >
                                     <tr
                                         v-for="transaction in transactions"
@@ -238,19 +238,19 @@ import FullPageLayout from './FullPageLayout.vue';
                                         class="bg-white"
                                     >
                                         <td
-                                            class="w-full max-w-0 whitespace-nowrap px-6 py-4 text-sm text-gray-900"
+                                            class="w-full px-6 py-4 text-sm text-gray-900 max-w-0 whitespace-nowrap"
                                         >
                                             <div class="flex">
                                                 <a
                                                     :href="transaction.href"
-                                                    class="group inline-flex space-x-2 truncate text-sm"
+                                                    class="inline-flex space-x-2 text-sm truncate group"
                                                 >
                                                     <BanknotesIcon
-                                                        class="h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
+                                                        class="flex-shrink-0 w-5 h-5 text-gray-400 group-hover:text-gray-500"
                                                         aria-hidden="true"
                                                     />
                                                     <p
-                                                        class="truncate text-gray-500 group-hover:text-gray-900"
+                                                        class="text-gray-500 truncate group-hover:text-gray-900"
                                                     >
                                                         {{ transaction.name }}
                                                     </p>
@@ -258,7 +258,7 @@ import FullPageLayout from './FullPageLayout.vue';
                                             </div>
                                         </td>
                                         <td
-                                            class="whitespace-nowrap px-6 py-4 text-right text-sm text-gray-500"
+                                            class="px-6 py-4 text-sm text-right text-gray-500 whitespace-nowrap"
                                         >
                                             <span
                                                 class="font-medium text-gray-900"
@@ -267,7 +267,7 @@ import FullPageLayout from './FullPageLayout.vue';
                                             {{ transaction.currency }}
                                         </td>
                                         <td
-                                            class="hidden whitespace-nowrap px-6 py-4 text-sm text-gray-500 md:block"
+                                            class="hidden px-6 py-4 text-sm text-gray-500 whitespace-nowrap md:block"
                                         >
                                             <span
                                                 :class="[
@@ -280,7 +280,7 @@ import FullPageLayout from './FullPageLayout.vue';
                                             >
                                         </td>
                                         <td
-                                            class="whitespace-nowrap px-6 py-4 text-right text-sm text-gray-500"
+                                            class="px-6 py-4 text-sm text-right text-gray-500 whitespace-nowrap"
                                         >
                                             <time
                                                 :datetime="transaction.datetime"
@@ -292,7 +292,7 @@ import FullPageLayout from './FullPageLayout.vue';
                             </table>
                             <!-- Pagination -->
                             <nav
-                                class="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6"
+                                class="flex items-center justify-between px-4 py-3 bg-white border-t border-gray-200 sm:px-6"
                                 aria-label="Pagination"
                             >
                                 <div class="hidden sm:block">
@@ -313,16 +313,16 @@ import FullPageLayout from './FullPageLayout.vue';
                                     </p>
                                 </div>
                                 <div
-                                    class="flex flex-1 justify-between gap-x-3 sm:justify-end"
+                                    class="flex justify-between flex-1 gap-x-3 sm:justify-end"
                                 >
                                     <a
                                         href="#"
-                                        class="relative inline-flex items-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:ring-gray-400"
+                                        class="relative inline-flex items-center px-3 py-2 text-sm font-semibold text-gray-900 bg-white rounded-md ring-1 ring-inset ring-gray-300 hover:ring-gray-400"
                                         >Previous</a
                                     >
                                     <a
                                         href="#"
-                                        class="relative inline-flex items-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:ring-gray-400"
+                                        class="relative inline-flex items-center px-3 py-2 text-sm font-semibold text-gray-900 bg-white rounded-md ring-1 ring-inset ring-gray-300 hover:ring-gray-400"
                                         >Next</a
                                     >
                                 </div>
@@ -424,9 +424,10 @@ export default {
             axios.get("https://api.quotable.io/random").then((response) => {
                 this.thoughts = response.data.content;
             });
-            // .get("https://hindi-quotes.vercel.app/random")
+            // axios
+            //     .get("https://hindi-quotes.vercel.app/random")
             //     .then((response) => {
-            //         console.log(response);
+            //         this.thoughts = response.data.quote;
             //     });
         },
     },
