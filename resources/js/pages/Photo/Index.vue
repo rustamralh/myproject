@@ -2,11 +2,11 @@
     <FullPageLayout>
         <div class="flex h-full">
             <!-- Content area -->
-            <div class="flex flex-1 flex-col overflow-hidden">
+            <div class="flex flex-col flex-1 overflow-hidden">
                 <!-- Main content -->
-                <div class="flex flex-1 items-stretch overflow-hidden">
+                <div class="flex items-stretch flex-1 overflow-hidden">
                     <main class="flex-1 overflow-y-auto">
-                        <div class="mx-auto px-4 pt-8 sm:px-6 lg:px-8">
+                        <div class="px-4 pt-8 mx-auto sm:px-6 lg:px-8">
                             <div class="flex">
                                 <h1
                                     class="flex-1 text-2xl font-bold text-gray-900"
@@ -21,7 +21,7 @@
                                         class="rounded-md p-1.5 text-gray-400 hover:bg-white hover:shadow-sm focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
                                     >
                                         <Bars4Icon
-                                            class="h-5 w-5"
+                                            class="w-5 h-5"
                                             aria-hidden="true"
                                         />
                                         <span class="sr-only"
@@ -33,7 +33,7 @@
                                         class="ml-0.5 rounded-md bg-white p-1.5 text-gray-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
                                     >
                                         <Squares2X2IconMini
-                                            class="h-5 w-5"
+                                            class="w-5 h-5"
                                             aria-hidden="true"
                                         />
                                         <span class="sr-only"
@@ -53,7 +53,7 @@
                                     <select
                                         id="tabs"
                                         name="tabs"
-                                        class="block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                                        class="block w-full py-2 pl-3 pr-10 text-base border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                                     >
                                         <option selected="">
                                             Recently Viewed
@@ -67,7 +67,7 @@
                                         class="flex items-center border-b border-gray-200"
                                     >
                                         <nav
-                                            class="-mb-px flex flex-1 space-x-6 xl:space-x-8"
+                                            class="flex flex-1 -mb-px space-x-6 xl:space-x-8"
                                             aria-label="Tabs"
                                         >
                                             <a
@@ -96,7 +96,7 @@
                                                 class="rounded-md p-1.5 text-gray-400 hover:bg-white hover:shadow-sm focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
                                             >
                                                 <Bars4Icon
-                                                    class="h-5 w-5"
+                                                    class="w-5 h-5"
                                                     aria-hidden="true"
                                                 />
                                                 <span class="sr-only"
@@ -108,7 +108,7 @@
                                                 class="ml-0.5 rounded-md bg-white p-1.5 text-gray-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
                                             >
                                                 <Squares2X2IconMini
-                                                    class="h-5 w-5"
+                                                    class="w-5 h-5"
                                                     aria-hidden="true"
                                                 />
                                                 <span class="sr-only"
@@ -122,7 +122,7 @@
 
                             <!-- Gallery -->
                             <section
-                                class="mt-8 pb-16"
+                                class="pb-16 mt-8"
                                 aria-labelledby="gallery-heading"
                             >
                                 <h2 id="gallery-heading" class="sr-only">
@@ -166,12 +166,12 @@
                                             </button>
                                         </div>
                                         <p
-                                            class="pointer-events-none mt-2 block truncate text-sm font-medium text-gray-900"
+                                            class="block mt-2 text-sm font-medium text-gray-900 truncate pointer-events-none"
                                         >
                                             {{ file.name }}
                                         </p>
                                         <p
-                                            class="pointer-events-none block text-sm font-medium text-gray-500"
+                                            class="block text-sm font-medium text-gray-500 pointer-events-none"
                                         >
                                             {{ file.size }}
                                         </p>
@@ -183,12 +183,12 @@
 
                     <!-- Details sidebar -->
                     <aside
-                        class="hidden w-96 overflow-y-auto rounded-lg border-l border-gray-200 bg-white p-8 lg:block"
+                        class="hidden p-8 overflow-y-auto bg-white border-l border-gray-200 rounded-lg w-96 lg:block"
                     >
-                        <div class="space-y-6 pb-16">
+                        <div class="pb-16 space-y-6">
                             <div>
                                 <div
-                                    class="aspect-w-10 aspect-h-7 block w-full overflow-hidden rounded-lg"
+                                    class="block w-full overflow-hidden rounded-lg aspect-w-10 aspect-h-7"
                                 >
                                     <img
                                         :src="currentFile.source"
@@ -197,7 +197,7 @@
                                     />
                                 </div>
                                 <div
-                                    class="mt-4 flex items-start justify-between"
+                                    class="flex items-start justify-between mt-4"
                                 >
                                     <div>
                                         <h2
@@ -215,10 +215,10 @@
                                     </div>
                                     <button
                                         type="button"
-                                        class="ml-4 flex h-8 w-8 items-center justify-center rounded-full bg-white text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                                        class="flex items-center justify-center w-8 h-8 ml-4 text-gray-400 bg-white rounded-full hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                                     >
                                         <HeartIcon
-                                            class="h-6 w-6"
+                                            class="w-6 h-6"
                                             aria-hidden="true"
                                         />
                                         <span class="sr-only">Favorite</span>
@@ -230,7 +230,7 @@
                                     Information
                                 </h3>
                                 <dl
-                                    class="mt-2 divide-y divide-gray-200 border-t border-b border-gray-200"
+                                    class="mt-2 border-t border-b border-gray-200 divide-y divide-gray-200"
                                 >
                                     <div
                                         v-for="key in Object.keys(
@@ -241,7 +241,7 @@
                                     >
                                         <dt class="text-gray-500">{{ key }}</dt>
                                         <dd
-                                            class="whitespace-nowrap text-gray-900"
+                                            class="text-gray-900 whitespace-nowrap"
                                         >
                                             {{ currentFile.information[key] }}
                                         </dd>
@@ -253,17 +253,17 @@
                                     Description
                                 </h3>
                                 <div
-                                    class="mt-2 flex items-center justify-between"
+                                    class="flex items-center justify-between mt-2"
                                 >
                                     <p class="text-sm italic text-gray-500">
                                         Add a description to this image.
                                     </p>
                                     <button
                                         type="button"
-                                        class="flex h-8 w-8 items-center justify-center rounded-full bg-white text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                                        class="flex items-center justify-center w-8 h-8 text-gray-400 bg-white rounded-full hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                                     >
                                         <PencilIcon
-                                            class="h-5 w-5"
+                                            class="w-5 h-5"
                                             aria-hidden="true"
                                         />
                                         <span class="sr-only"
@@ -278,7 +278,7 @@
                                 </h3>
                                 <ul
                                     role="list"
-                                    class="mt-2 divide-y divide-gray-200 border-t border-b border-gray-200"
+                                    class="mt-2 border-t border-b border-gray-200 divide-y divide-gray-200"
                                 >
                                     <li
                                         v-for="person in currentFile.sharedWith"
@@ -289,7 +289,7 @@
                                             <img
                                                 :src="person.imageUrl"
                                                 alt=""
-                                                class="h-8 w-8 rounded-full"
+                                                class="w-8 h-8 rounded-full"
                                             />
                                             <p
                                                 class="ml-4 text-sm font-medium text-gray-900"
@@ -299,7 +299,7 @@
                                         </div>
                                         <button
                                             type="button"
-                                            class="ml-6 rounded-md bg-white text-sm font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                                            class="ml-6 text-sm font-medium text-indigo-600 bg-white rounded-md hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                                         >
                                             Remove<span class="sr-only">
                                                 {{ person.name }}</span
@@ -311,13 +311,13 @@
                                     >
                                         <button
                                             type="button"
-                                            class="group -ml-1 flex items-center rounded-md bg-white p-1 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                                            class="flex items-center p-1 -ml-1 bg-white rounded-md group focus:outline-none focus:ring-2 focus:ring-indigo-500"
                                         >
                                             <span
-                                                class="flex h-8 w-8 items-center justify-center rounded-full border-2 border-dashed border-gray-300 text-gray-400"
+                                                class="flex items-center justify-center w-8 h-8 text-gray-400 border-2 border-gray-300 border-dashed rounded-full"
                                             >
                                                 <PlusIconMini
-                                                    class="h-5 w-5"
+                                                    class="w-5 h-5"
                                                     aria-hidden="true"
                                                 />
                                             </span>
@@ -332,13 +332,13 @@
                             <div class="flex">
                                 <button
                                     type="button"
-                                    class="flex-1 rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                                    class="flex-1 px-4 py-2 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                                 >
                                     Download
                                 </button>
                                 <button
                                     type="button"
-                                    class="ml-3 flex-1 rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                                    class="flex-1 px-4 py-2 ml-3 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                                 >
                                     Delete
                                 </button>

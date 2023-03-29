@@ -51,7 +51,7 @@
                         leave-to="-translate-x-full"
                     >
                         <DialogPanel
-                            class="relative flex w-full max-w-xs flex-1 flex-col bg-cyan-700 pt-5 pb-4"
+                            class="relative flex flex-col flex-1 w-full max-w-xs pt-5 pb-4 bg-cyan-700"
                         >
                             <TransitionChild
                                 as="template"
@@ -62,34 +62,34 @@
                                 leave-from="opacity-100"
                                 leave-to="opacity-0"
                             >
-                                <div class="absolute top-0 right-0 -mr-12 pt-2">
+                                <div class="absolute top-0 right-0 pt-2 -mr-12">
                                     <button
                                         type="button"
-                                        class="ml-1 flex h-10 w-10 items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                                        class="flex items-center justify-center w-10 h-10 ml-1 rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
                                         @click="sidebarOpen = false"
                                     >
                                         <span class="sr-only"
                                             >Close sidebar</span
                                         >
                                         <XMarkIcon
-                                            class="h-6 w-6 text-white"
+                                            class="w-6 h-6 text-white"
                                             aria-hidden="true"
                                         />
                                     </button>
                                 </div>
                             </TransitionChild>
-                            <div class="flex flex-shrink-0 items-center px-4">
+                            <div class="flex items-center flex-shrink-0 px-4">
                                 <img
-                                    class="h-8 w-auto"
+                                    class="w-auto h-8"
                                     src="https://tailwindui.com/img/logos/mark.svg?color=cyan&shade=300"
                                     alt="Easywire logo"
                                 />
                             </div>
                             <nav
-                                class="mt-5 h-full flex-shrink-0 divide-y divide-cyan-800 overflow-y-auto"
+                                class="flex-shrink-0 h-full mt-5 overflow-y-auto divide-y divide-cyan-800"
                                 aria-label="Sidebar"
                             >
-                                <div class="space-y-1 px-2">
+                                <div class="px-2 space-y-1">
                                     <a
                                         v-for="item in navigation"
                                         :key="item"
@@ -106,14 +106,14 @@
                                     >
                                         <component
                                             :is="item.icon"
-                                            class="mr-4 h-6 w-6 flex-shrink-0 text-cyan-200"
+                                            class="flex-shrink-0 w-6 h-6 mr-4 text-cyan-200"
                                             aria-hidden="true"
                                         />
                                         {{ item.name }}
                                     </a>
                                 </div>
-                                <div class="mt-6 pt-6">
-                                    <div class="space-y-1 px-2">
+                                <div class="pt-6 mt-6">
+                                    <div class="px-2 space-y-1">
                                         <a
                                             v-for="item in secondaryNavigation"
                                             :key="item.name"
@@ -127,7 +127,7 @@
                                         >
                                             <component
                                                 :is="item.icon"
-                                                class="mr-4 h-6 w-6 text-cyan-200"
+                                                class="w-6 h-6 mr-4 text-cyan-200"
                                                 aria-hidden="true"
                                             />
                                             {{ item.name }}
@@ -137,7 +137,7 @@
                             </nav>
                         </DialogPanel>
                     </TransitionChild>
-                    <div class="w-14 flex-shrink-0" aria-hidden="true">
+                    <div class="flex-shrink-0 w-14" aria-hidden="true">
                         <!-- Dummy element to force sidebar to shrink to fit close icon -->
                     </div>
                 </div>
@@ -148,20 +148,20 @@
         <div class="hidden lg:fixed lg:inset-y-0 lg:flex lg:w-64 lg:flex-col">
             <!-- Sidebar component, swap this element with another sidebar if you like -->
             <div
-                class="flex flex-grow flex-col overflow-y-auto bg-cyan-700 pt-5 pb-4"
+                class="flex flex-col flex-grow pt-5 pb-4 overflow-y-auto bg-cyan-700"
             >
-                <div class="flex flex-shrink-0 items-center px-4">
+                <div class="flex items-center flex-shrink-0 px-4">
                     <img
-                        class="h-8 w-auto"
+                        class="w-auto h-8"
                         src="https://tailwindui.com/img/logos/mark.svg?color=cyan&shade=300"
                         alt="Easywire logo"
                     />
                 </div>
                 <nav
-                    class="mt-5 flex flex-1 flex-col divide-y divide-cyan-800 overflow-y-auto"
+                    class="flex flex-col flex-1 mt-5 overflow-y-auto divide-y divide-cyan-800"
                     aria-label="Sidebar"
                 >
-                    <div class="space-y-1 px-2">
+                    <div class="px-2 space-y-1">
                         <a
                             v-for="item in navigation"
                             :key="item.name"
@@ -176,14 +176,14 @@
                         >
                             <component
                                 :is="item.icon"
-                                class="mr-4 h-6 w-6 flex-shrink-0 text-cyan-200"
+                                class="flex-shrink-0 w-6 h-6 mr-4 text-cyan-200"
                                 aria-hidden="true"
                             />
                             {{ item.name }}
                         </a>
                     </div>
-                    <div class="mt-6 pt-6">
-                        <div class="space-y-1 px-2">
+                    <div class="pt-6 mt-6">
+                        <div class="px-2 space-y-1">
                             <a
                                 v-for="item in secondaryNavigation"
                                 :key="item.name"
@@ -197,7 +197,7 @@
                             >
                                 <component
                                     :is="item.icon"
-                                    class="mr-4 h-6 w-6 text-cyan-200"
+                                    class="w-6 h-6 mr-4 text-cyan-200"
                                     aria-hidden="true"
                                 />
                                 {{ item.name }}
@@ -208,21 +208,21 @@
             </div>
         </div>
 
-        <div class="flex flex-1 flex-col lg:pl-64">
+        <div class="flex flex-col flex-1 lg:pl-64">
             <div
-                class="flex h-16 flex-shrink-0 border-b border-gray-200 bg-white lg:border-none"
+                class="flex flex-shrink-0 h-16 bg-white border-b border-gray-200 lg:border-none"
             >
                 <button
                     type="button"
-                    class="border-r border-gray-200 px-4 text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-cyan-500 lg:hidden"
+                    class="px-4 text-gray-400 border-r border-gray-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-cyan-500 lg:hidden"
                     @click="sidebarOpen = true"
                 >
                     <span class="sr-only">Open sidebar</span>
-                    <Bars3CenterLeftIcon class="h-6 w-6" aria-hidden="true" />
+                    <Bars3CenterLeftIcon class="w-6 h-6" aria-hidden="true" />
                 </button>
                 <!-- Search bar -->
                 <div
-                    class="flex flex-1 justify-between px-4 sm:px-6 lg:mx-auto lg:px-8"
+                    class="flex justify-between flex-1 px-4 sm:px-6 lg:mx-auto lg:px-8"
                 >
                     <div class="flex flex-1">
                         <form
@@ -237,66 +237,66 @@
                                 class="relative w-full text-gray-400 focus-within:text-gray-600"
                             >
                                 <div
-                                    class="pointer-events-none absolute inset-y-0 left-0 flex items-center"
+                                    class="absolute inset-y-0 left-0 flex items-center pointer-events-none"
                                     aria-hidden="true"
                                 >
                                     <MagnifyingGlassIcon
-                                        class="h-5 w-5"
+                                        class="w-5 h-5"
                                         aria-hidden="true"
                                     />
                                 </div>
                                 <input
                                     id="search-field"
                                     name="search-field"
-                                    class="block h-full w-full border-transparent py-2 pl-8 pr-3 text-gray-900 focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
+                                    class="block w-full h-full py-2 pl-8 pr-3 text-gray-900 border-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
                                     placeholder="Search transactions"
                                     type="search"
                                 />
                             </div>
                         </form>
                     </div>
-                    <div class="ml-4 flex items-center md:ml-6">
+                    <div class="flex items-center ml-4 md:ml-6">
                         <button
                             type="button"
-                            class="rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+                            class="p-1 text-gray-400 bg-white rounded-full hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
                         >
                             <span class="sr-only">View notifications</span>
-                            <BellIcon class="h-6 w-6" aria-hidden="true" />
+                            <BellIcon class="w-6 h-6" aria-hidden="true" />
                         </button>
 
                         <!-- Profile dropdown -->
                         <Menu as="div" class="relative ml-3">
                             <div>
                                 <MenuButton
-                                    class="flex max-w-xs items-center rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 lg:rounded-md lg:p-2 lg:hover:bg-gray-50"
+                                    class="flex items-center max-w-xs text-sm bg-white rounded-full focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 lg:rounded-md lg:p-2 lg:hover:bg-gray-50"
                                 >
                                     <img
-                                        class="h-8 w-8 rounded-full"
+                                        class="w-8 h-8 rounded-full"
                                         src="https://cdn.vectorstock.com/i/1000x1000/92/94/bearded-man-in-glasses-showing-emotion-winking-vector-45159294.webp"
                                         alt=""
                                     />
                                     <span
-                                        class="ml-3 hidden text-sm font-medium text-gray-700 lg:block"
+                                        class="hidden ml-3 text-sm font-medium text-gray-700 lg:block"
                                         ><span class="sr-only"
                                             >Open user menu for </span
                                         >Sahil</span
                                     >
                                     <ChevronDownIcon
-                                        class="ml-1 hidden h-5 w-5 flex-shrink-0 text-gray-400 lg:block"
+                                        class="flex-shrink-0 hidden w-5 h-5 ml-1 text-gray-400 lg:block"
                                         aria-hidden="true"
                                     />
                                 </MenuButton>
                             </div>
                             <transition
-                                enter-active-class="transition ease-out duration-100"
-                                enter-from-class="transform opacity-0 scale-95"
-                                enter-to-class="transform opacity-100 scale-100"
-                                leave-active-class="transition ease-in duration-75"
-                                leave-from-class="transform opacity-100 scale-100"
-                                leave-to-class="transform opacity-0 scale-95"
+                                enter-active-class="transition duration-100 ease-out"
+                                enter-from-class="transform scale-95 opacity-0"
+                                enter-to-class="transform scale-100 opacity-100"
+                                leave-active-class="transition duration-75 ease-in"
+                                leave-from-class="transform scale-100 opacity-100"
+                                leave-to-class="transform scale-95 opacity-0"
                             >
                                 <MenuItems
-                                    class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                                    class="absolute right-0 z-10 w-48 py-1 mt-2 origin-top-right bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
                                 >
                                     <MenuItem v-slot="{ active }">
                                         <a
@@ -320,7 +320,7 @@
                                     </MenuItem>
                                     <MenuItem v-slot="{ active }">
                                         <a
-                                            href="#"
+                                            href="auth/logout"
                                             :class="[
                                                 active ? 'bg-gray-100' : '',
                                                 'block px-4 py-2 text-sm text-gray-700',
