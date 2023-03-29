@@ -1,9 +1,9 @@
 
 import { createApp, h } from 'vue'
 import { createInertiaApp } from '@inertiajs/vue3'
+import { ZiggyVue } from "ziggy";
 import store from './store/index.js';
 import FullPageLayout from './pages/FullPageLayout.vue'
-import Dashboard from './pages/Dashboard.vue'
 createInertiaApp({
     resolve: name => {
         const pages = import.meta.glob('./pages/**/*.vue', { eager: true })
@@ -12,8 +12,8 @@ createInertiaApp({
     setup({ el, App, props, plugin }) {
         createApp({ render: () => h(App, props) })
             .component('FullPageLayout', FullPageLayout)
-            .component('Dashboard', Dashboard)
             .use(plugin)
+            .use(ZiggyVue, Ziggy)
             .use(store)
             .mount(el)
     },

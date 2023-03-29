@@ -25,7 +25,6 @@ class UserRepository extends ModelRepository
 
         $user->password    = bcrypt($request['password']);
         $user->status      = 'ActivationPending';
-        $user->is_filter   = @$request['is_filter'];
 
         $user->save();
 

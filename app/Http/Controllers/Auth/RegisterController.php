@@ -32,10 +32,7 @@ class RegisterController extends AuthController
      */
     public function register(RegisterRequest $request)
     {
-        //Create user
-        $userDetails             = $request->validated();
-        $userDetails['password'] = Hash::make($request->password);
-        $user                    = $this->userRepository->create($userDetails);
+        $user                    = $this->userRepository->create($request->validated());
 
         //Login user
         $this->authService->loginUser($user);

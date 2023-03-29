@@ -6,8 +6,15 @@ use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\VerificationController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
+Route::get('/', function () {
+    return inertia('App');
+});
+Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+});
 Route::prefix('auth')
     // ->middleware(['email.transform'])
     ->group(function () {

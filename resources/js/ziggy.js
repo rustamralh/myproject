@@ -1,0 +1,7 @@
+const Ziggy = {"url":"http:\/\/localhost","port":null,"defaults":{},"routes":{"sanctum.csrf-cookie":{"uri":"sanctum\/csrf-cookie","methods":["GET","HEAD"]},"ignition.healthCheck":{"uri":"_ignition\/health-check","methods":["GET","HEAD"]},"ignition.executeSolution":{"uri":"_ignition\/execute-solution","methods":["POST"]},"ignition.updateConfig":{"uri":"_ignition\/update-config","methods":["POST"]},"login":{"uri":"auth\/login","methods":["GET","HEAD"]},"login.store":{"uri":"auth\/login","methods":["POST"]},"forgot-password.index":{"uri":"auth\/forgot-password","methods":["GET","HEAD"]},"forgot-password":{"uri":"auth\/forgot-password","methods":["POST"]},"password.reset":{"uri":"auth\/password\/reset\/{token}","methods":["GET","HEAD"]},"password.update":{"uri":"auth\/password\/reset","methods":["POST"]},"register.index":{"uri":"auth\/register","methods":["GET","HEAD"]},"register.store":{"uri":"auth\/register","methods":["POST"]},"verification.notice":{"uri":"auth\/email\/verify","methods":["GET","HEAD"]},"verification.send":{"uri":"auth\/email\/verification-notification","methods":["GET","HEAD"]},"verification.verify":{"uri":"auth\/email\/verify\/{id}\/{hash}","methods":["GET","HEAD"]},"logout":{"uri":"auth\/logout","methods":["GET","HEAD"]}}};
+
+if (typeof window !== 'undefined' && typeof window.Ziggy !== 'undefined') {
+    Object.assign(Ziggy.routes, window.Ziggy.routes);
+}
+
+export { Ziggy };
