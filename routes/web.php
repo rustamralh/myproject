@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ResetPasswordController;
+use App\Http\Controllers\Auth\SocialController;
 use App\Http\Controllers\Auth\VerificationController;
 use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\DashboardController;
@@ -42,7 +43,8 @@ Route::prefix('auth')
         Route::get('email/verification-notification', [VerificationController::class, 'sendVerificationEmail'])->name('verification.send');
         Route::get('email/verify/{id}/{hash}', [VerificationController::class, 'verifyEmail'])->name('verification.verify');
     });
-
+Route::get('/socialite/{social}', [ SocialController::class, 'getSocialNetwork'])->name('social.redirect');
+Route::get('/socialite/{social-network}/callback', [ SocialController::class, 'loginWithSocialNetwork'])->name('social.callback');
 //No Tenant Routes
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('auth/logout', LogoutController::class, [

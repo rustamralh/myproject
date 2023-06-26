@@ -14,6 +14,17 @@
                     <h1 class="mb-2 text-2xl">Xyrin Technologies</h1>
                     <!-- <span class="text-gray-300">Enter Login Details</span> -->
                 </div>
+                <div class="flex flex-col items-center mb-8">
+                    <img
+                        src="\images\google.png"
+                        width="60"
+                        alt=""
+                        srcset=""
+                        @click="loginWithSocialNetworkClicked('google')"
+                    />
+                    <h1 class="mb-2 text-2xl">Xyrin Technologies</h1>
+                    <!-- <span class="text-gray-300">Enter Login Details</span> -->
+                </div>
                 <form action="#" @submit.prevent="loginClicked()">
                     <div class="mb-4 text-lg">
                         <input
@@ -50,6 +61,7 @@
 <script>
 import { mapActions, mapGetters } from "vuex";
 import { useForm, usePage } from "@inertiajs/vue3";
+import { Inertia } from "@inertiajs/inertia";
 export default {
     components: { mapActions, mapGetters, usePage },
     setup() {
@@ -61,9 +73,13 @@ export default {
         function loginClicked() {
             form.post(route("login.store"));
         }
+        function loginWithSocialNetworkClicked(socialNetwork) {
+            Inertia.get(route("social.redirect", socialNetwork));
+        }
         return {
             form,
             loginClicked,
+            loginWithSocialNetworkClicked,
         };
     },
 };
