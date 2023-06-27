@@ -12,17 +12,19 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\TeamController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return inertia('App');
 });
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth','verified'])->group(function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
     Route::get('calender', [CalendarController::class, 'index'])->name('calendar.index');
     Route::get('setting', [SettingController::class, 'index'])->name('setting.index');
     Route::get('photos', [PhotoController::class, 'index'])->name('photos.index');
     Route::get('teams', [TeamController::class, 'index'])->name('teams.index');
+    Route::get('users/index', [UserController::class, 'index'])->name('users.index');
 });
 Route::prefix('auth')
     // ->middleware(['email.transform'])
