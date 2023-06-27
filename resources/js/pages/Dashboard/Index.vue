@@ -12,6 +12,7 @@ import FullPageLayout from './FullPageLayout.vue';
                                 class="hidden w-16 h-16 rounded-full sm:block"
                                 src="https://cdn.vectorstock.com/i/1000x1000/92/94/bearded-man-in-glasses-showing-emotion-winking-vector-45159294.webp"
                                 alt=""
+                                @click="download"
                             />
                             <div>
                                 <div class="flex items-center">
@@ -424,6 +425,30 @@ export default {
             axios.get("https://api.quotable.io/random").then((response) => {
                 this.thoughts = response.data.content;
             });
+            // axios
+            //     .get("https://hindi-quotes.vercel.app/random")
+            //     .then((response) => {
+            //         this.thoughts = response.data.quote;
+            //     });
+        },
+        download() {
+            axios
+                .post(route("users.download"), {}, { responseType: "blob" })
+                .then((response) => {
+                    const url = window.URL.createObjectURL(
+                        new Blob([response.data])
+                    );
+                    const link = document.createElement("a");
+                    link.href = url;
+                    link.setAttribute("id", "exported-file.xlsx");
+                    link.setAttribute("download", "exported-file.xlsx");
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                })
+                .catch((error) => {
+                    console.error(error); // Handle any errors
+                });
             // axios
             //     .get("https://hindi-quotes.vercel.app/random")
             //     .then((response) => {

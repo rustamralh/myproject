@@ -25,6 +25,7 @@ Route::middleware(['auth','verified'])->group(function () {
     Route::get('photos', [PhotoController::class, 'index'])->name('photos.index');
     Route::get('teams', [TeamController::class, 'index'])->name('teams.index');
     Route::get('users/index', [UserController::class, 'index'])->name('users.index');
+    Route::post('users/download', [UserController::class, 'download'])->name('users.download');
 });
 Route::prefix('auth')
     // ->middleware(['email.transform'])
