@@ -11,6 +11,7 @@ use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\SettingController;
+use App\Http\Controllers\StripeController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -48,6 +49,8 @@ Route::prefix('auth')
     });
 Route::get('/socialite/{social}', [ SocialController::class, 'getSocialNetwork'])->name('social.redirect');
 Route::get('/socialite/{social-network}/callback', [ SocialController::class, 'loginWithSocialNetwork'])->name('social.callback');
+
+Route::get('/stripe/products', [StripeController::class,'getProducts']);
 //No Tenant Routes
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('auth/logout', LogoutController::class, [

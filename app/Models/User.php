@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Auth;
+use Laravel\Cashier\Billable;
 use Laravel\Sanctum\HasApiTokens;
 use Laravel\Scout\Searchable;
 
@@ -16,6 +17,8 @@ class User extends Authenticatable
     use HasFactory;
     use Notifiable;
     use Searchable;
+    use Billable;
+
 
     /**
      * The attributes that are mass assignable.

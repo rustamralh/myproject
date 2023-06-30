@@ -365,6 +365,7 @@ import {
     ShieldCheckIcon,
     UserGroupIcon,
     XMarkIcon,
+    ShoppingBagIcon,
 } from "@heroicons/vue/24/outline";
 import {
     BanknotesIcon,
@@ -404,6 +405,12 @@ const navigation = [
         current: "/calender" === window.location.pathname,
     },
     { name: "Reports", href: "#", icon: DocumentChartBarIcon, current: false },
+    {
+        name: "Stripe Products",
+        href: "/stripe/products",
+        icon: ShoppingBagIcon,
+        current: "/stripe/products" === window.location.pathname,
+    },
 ];
 const secondaryNavigation = [
     {
