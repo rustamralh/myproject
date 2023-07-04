@@ -51,6 +51,9 @@ Route::get('/socialite/{social}', [ SocialController::class, 'getSocialNetwork']
 Route::get('/socialite/{social-network}/callback', [ SocialController::class, 'loginWithSocialNetwork'])->name('social.callback');
 
 Route::get('/stripe/products', [StripeController::class,'getProducts']);
+Route::get('/stripe/payment-method/create', [StripeController::class, 'createPaymentMethod'])->name('stripe.create-payment-method');
+Route::post('/stripe/subscription-link', [StripeController::class,'getSubscriptionLink'])->name('subscription.link');
+Route::post('/stripe/webhook', [WebhookController::class, 'handleWebhook']);
 //No Tenant Routes
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('auth/logout', LogoutController::class, [

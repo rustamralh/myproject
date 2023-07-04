@@ -279,7 +279,7 @@
                                         class="hidden ml-3 text-sm font-medium text-gray-700 lg:block"
                                         ><span class="sr-only"
                                             >Open user menu for </span
-                                        >Sahil</span
+                                        >User</span
                                     >
                                     <ChevronDownIcon
                                         class="flex-shrink-0 hidden w-5 h-5 ml-1 text-gray-400 lg:block"

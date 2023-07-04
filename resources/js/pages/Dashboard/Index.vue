@@ -24,7 +24,7 @@ import FullPageLayout from './FullPageLayout.vue';
                                     <h1
                                         class="ml-3 text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:leading-9"
                                     >
-                                        {{ greeting }}, Sahil
+                                        {{ greeting }},User
                                     </h1>
                                 </div>
                                 <dl

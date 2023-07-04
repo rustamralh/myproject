@@ -30,6 +30,7 @@ class User extends Authenticatable
         'email',
         'password',
         'google_id',
+        'status',
     ];
 
     /**
@@ -56,5 +57,9 @@ class User extends Authenticatable
     public function isUser()
     {
         return Auth::user();
+    }
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
     }
 }

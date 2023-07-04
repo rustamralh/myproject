@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Mail\ResetPasswordMessage;
+use App\Models\Post;
 use App\Models\User;
 use App\Repositories\Abstraction\ModelRepository;
 use Illuminate\Support\Facades\Auth;
@@ -45,5 +46,32 @@ class UserRepository extends ModelRepository
         }
         $user->update();
         // Mail::to($user->email)->send(new ResetPasswordMessage($user->id));
+    }
+
+    public function createUser(array $request): User
+    {
+        $user = User::create($request);
+        $this->saveChildRecords($user, $request);
+        return $user->load('posts');
+    }
+    public function saveChildRecords($user, array $request)
+    {
+        $this->savePosts($user, $request['posts']);
+    }
+    public function savePosts($user, array $request)
+    {
+        $posts = collect();
+        if (! is_null($request)) {
+            foreach ($request as $postRequest) {
+                $post = new Post();
+                if (!is_null(@$postRequest['id'])) {
+                    $post = Post::findOrFail($postRequest['id']);
+                }
+                $post->fill($postRequest);
+                $post->user()->associate($user);
+                $post->save();
+                $posts->push($post);
+            }
+        }
     }
 }

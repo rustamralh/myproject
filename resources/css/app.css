@@ -8,3 +8,9 @@ html {
 body {
     @apply text-gray-700 bg-gradient-to-tr from-blue-200 via-indigo-200 to-pink-200;
 }
+
+body {
+    font-family: var(--font-family);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
