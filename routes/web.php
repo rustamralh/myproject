@@ -52,6 +52,7 @@ Route::get('/socialite/{social-network}/callback', [ SocialController::class, 'l
 
 Route::get('/stripe/products', [StripeController::class,'getProducts']);
 Route::get('/stripe/payment-method/create', [StripeController::class, 'createPaymentMethod'])->name('stripe.create-payment-method');
+Route::post('/stripe/productId/{productId}/payment-link', [StripeController::class, 'getPaymentLink'])->name('stripe.get-payment-link');
 Route::post('/stripe/subscription-link', [StripeController::class,'getSubscriptionLink'])->name('subscription.link');
 Route::post('/stripe/webhook', [WebhookController::class, 'handleWebhook']);
 //No Tenant Routes

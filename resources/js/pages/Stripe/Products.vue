@@ -68,7 +68,7 @@
                         />
                         <Button
                             label="Buy Now"
-                            @click="getSubsciptionLink(product.id)"
+                            @click="paymentLinkRedirect(product.id)"
                             class="w-full p-3 mt-auto"
                         ></Button>
                     </div>
@@ -92,15 +92,8 @@ const props = defineProps({
     },
 });
 
-const getSubsciptionLink = (productId) => {
-    // Inertia.get(route("stripe.create-payment-method"));
-    console.log(productId);
-    axios.post(`https://buy.stripe.com/${productId}`).then((response) => {
-        console.log(response);
-    });
-    // axios.post(`https://buy.stripe.com/${productId}`).then((response) => {
-    //     console.log(response);
-    // });
+const paymentLinkRedirect = (productId) => {
+    Inertia.post(route("stripe.get-payment-link", productId));
 };
 
 const products = ref(props?.products?.data);

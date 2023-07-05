@@ -35,6 +35,12 @@ class StripeController extends Controller
         return Inertia::render('Stripe/PaymentMethod');
     }
 
+    public function getPaymentLink($productId)
+    {
+        // return Inertia::location("https://buy.stripe.com/$productId");
+        return Inertia::location("https://buy.stripe.com/test_4gw5ky9H4aQR8iQ4gi");
+    }
+
 
     public function getSubscriptionLink(Request $request)
     {
