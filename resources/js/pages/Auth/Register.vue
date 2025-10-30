@@ -10,7 +10,7 @@
         >
             <div class="text-white">
                 <div class="flex flex-col items-center mb-8">
-                    <img src="\images\logo.png" width="150" alt="" srcset="" />
+                    <img :src="'/images/logo.png'" width="150" alt="Logo" />
                     <h1 class="mb-2 text-2xl">Xyrin Technologies</h1>
                     <!-- <span class="text-gray-300">Enter Login Details</span> -->
                 </div>
