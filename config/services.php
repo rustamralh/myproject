@@ -36,4 +36,11 @@ return [
         'redirect' => env('APP_URL').'/socialite/google/callback',
     ],
 
+    'slack' => [
+        'webhook_url' => env('SLACK_WEBHOOK_URL'),
+        'bot_token' => env('SLACK_BOT_TOKEN'),
+        'signing_secret' => env('SLACK_SIGNING_SECRET'),
+        'default_channel' => env('SLACK_DEFAULT_CHANNEL', '#general'),
+    ],
+
 ];

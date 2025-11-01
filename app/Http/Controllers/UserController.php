@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\SlackNotificationEvent;
 use App\Exports\UserExport;
 use App\Http\Requests\StoreUserRequest;
 use App\Models\User;
@@ -21,8 +22,23 @@ class UserController extends Controller
     }
     public function download(Request $request)
     {
+        // Send Slack notification about user export completion
+        event(new SlackNotificationEvent(
+            '#general',
+            'User export completed successfully',
+            [],
+            [
+                [
+                    'type' => 'section',
+                    'text' => [
+                        'type' => 'mrkdwn',
+                        'text' => '*User Export Completed*\nA user export has been generated and downloaded.',
+                    ],
+                ],
+            ]
+        ));
+        
         return (new UserExport(['id','name'], ['id','name']))->download('users.xlsx');
-        // return (new UserExport())>download('users.xlsx')->deleteFileAfterSend(true);
     }
 
     public function show(int $id)

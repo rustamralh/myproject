@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SlackWebhookController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -21,3 +22,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::apiResource('users', UserController::class)->only(['index','store','show']);
+
+// Slack webhook endpoint
+Route::post('/slack/webhook', [SlackWebhookController::class, 'handle'])->name('slack.webhook');
